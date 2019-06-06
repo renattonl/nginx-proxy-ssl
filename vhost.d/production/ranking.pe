@@ -1,3 +1,1 @@
-if ($http_host = ranking.pe){
-    return 303 https://www.ranking.pe$request_uri;
-}
+return 303 https://www.ranking.pe$request_uri;
