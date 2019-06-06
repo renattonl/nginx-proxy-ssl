@@ -10,7 +10,7 @@ services:
       - "80:80"
     volumes:
       - ./conf.d/nginx.conf:/etc/nginx/conf.d/nginx.conf
-      - ./vhost.d/local/:/etc/nginx/vhost.d:rw
+      - ./vhost.d/local:/etc/nginx/vhost.d:rw
       - /etc/nginx/certs
       - /usr/share/nginx/html
       - /var/run/docker.sock:/tmp/docker.sock:ro
