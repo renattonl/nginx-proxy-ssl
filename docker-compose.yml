@@ -1,10 +1,11 @@
-version: '2'
+version: '3'
 
 services:
   nginx-proxy:
     image: jwilder/nginx-proxy:alpine
     container_name: nginx-proxy
     tty: true
+    restart: unless-stopped
     ports:
       - "80:80"
     volumes:
@@ -13,3 +14,9 @@ services:
       - /etc/nginx/certs
       - /usr/share/nginx/html
       - /var/run/docker.sock:/tmp/docker.sock:ro
+    networks:
+      - net_global
+
+networks:
+  net_global:
+    driver: bridge

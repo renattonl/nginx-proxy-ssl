@@ -14,7 +14,8 @@ services:
       - /etc/nginx/certs
       - /usr/share/nginx/html
       - /var/run/docker.sock:/tmp/docker.sock:ro
-
+    networks:
+      - net_global
 
   nginx-proxy-letsencrypt:
     image: jrcs/letsencrypt-nginx-proxy-companion
@@ -27,3 +28,9 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
     depends_on:
       - nginx-proxy
+    networks:
+      - net_global
+
+networks:
+  net_global:
+    driver: bridge
