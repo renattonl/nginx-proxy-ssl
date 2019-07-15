@@ -12,7 +12,7 @@ services:
       - ./conf.d/nginx.conf:/etc/nginx/conf.d/nginx.conf
       - ./vhost.d/production:/etc/nginx/vhost.d:rw
       - ./certs:/etc/nginx/certs
-      - /usr/share/nginx/html
+      - ./html:/usr/share/nginx/html
       - /var/run/docker.sock:/tmp/docker.sock:ro
     networks:
       - net_global
